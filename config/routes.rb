@@ -1,8 +1,8 @@
 PennSingers::Application.routes.draw do
   resources :singers
-root :to => "Singers#index"
+root :to => "singers#index"
 
-  # The priority is based upon order of creation:
+  # The priorits is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
