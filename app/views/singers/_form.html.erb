@@ -1,0 +1,89 @@
+<%= form_for(@singer) do |f| %>
+<% if @singer.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@singer.errors.count, "error") %> prohibited this singer from being saved:</h2>
+
+	<ul>
+		<% @singer.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<div class="hero-unit">
+	<br />
+	<div class="container">
+		<div class="span12">
+			<div class="row-fluid">
+				<div class="field span4">
+					<%= f.label :name %>
+					<%= f.text_field :name %>
+				</div>
+				<div class="field span4">
+					<%= f.label :lastname %>
+					<%= f.text_field :lastname %>
+				</div>
+				<div class="field span4">
+					<%= f.label "Voice Part" %>
+					<%= f.collection_select :voicepart, SingersController::VOICEPARTS, :to_s, :to_s,
+            :include_blank => false %>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="field span4">
+					<%= f.label :email %>
+					<%= f.text_field :email %>
+				</div>
+				<div class="field span4">
+					<%= f.label :number %>
+					<%= f.text_field :number %>
+				</div>
+				<div class="field span4">
+					<%= f.label :year %>
+					<%= f.number_field :year %>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="field span4">
+					<%= f.label :points %>
+					<%= f.number_field :points %>
+				</div>
+				<div class="field span4">
+					<%= f.label :id %>
+					<%= f.number_field :id %>
+				</div>
+				<div class="field span4">
+					<%= f.label :performing %>
+					<%= f.check_box :performing%> 
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="field span4">
+					<%= f.label :bio %>
+					<%= f.text_area :bio %>
+				</div>
+				<div class="field span4">
+					<%= f.label :skills %>
+					<%= f.text_area :skills%>
+				</div>
+				<div class="field span4 row">
+					<%= f.label :status %>
+					<% SingersController::STATS.each do |i| %>
+					<div class="label">
+						<%= radio_button( :singer, :status, i) %> <%= i%>
+					</div>
+					<br/>
+					<% end %>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="actions">
+					<%= f.submit 'Submit', :class =>"btn" %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<% end %>
