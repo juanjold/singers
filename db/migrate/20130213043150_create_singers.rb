@@ -14,5 +14,6 @@ class CreateSingers < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :id, :email, unique: true
   end
 end
