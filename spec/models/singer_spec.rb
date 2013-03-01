@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Singer do
+  before do
+    sign_in
+  end
+
   it "should require first and last name" do
     singer = Singer.create
     singer.should_not be_valid
@@ -12,4 +16,3 @@ describe Singer do
     singer.should be_valid
   end
 end
-  

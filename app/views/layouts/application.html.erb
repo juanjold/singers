@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PennSingers</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<div class="row-fluid">
-<%= yield %>
-</div>
-</body>
+	<head>
+		<title>PennSingers</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<div class="row">
+						<div class="span8">
+							<ul class="nav nav-pills">
+								<li>
+									<%= link_to 'Home', singers_path %>
+								</li>
+								<li>
+									<%= link_to 'New Singer', new_singer_path %>
+								</li>
+								<% if admin_signed_in? %>
+								<li>
+									<%= link_to 'Logout',
+									destroy_admin_session_path,
+									method: :delete %>
+								</li>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hero-unit">
+			<div class="row-fluid">
+
+				<% if alert %>
+				<div class="alert alert-error">
+					<%= alert %>
+				</div>
+				<% end %>
+				<% if notice %>
+				<div class="alert alert-success">
+					<%= notice %>
+				</div>
+				<% end %>
+				<%= yield %>
+			</div>
+	</body>
 </html>

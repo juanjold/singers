@@ -12,6 +12,8 @@ group :development, :test do
   gem 'debugger'
 end
 
+gem 'devise'
+
 group :test do
   gem 'capybara'
 end

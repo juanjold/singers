@@ -64,5 +64,7 @@ module PennSingers
       g.view_specs false
       g.helper_specs false
     end
+    
+    config.action_mailer.default_url_options = { :host => 'http://singers.herokuapp.com' }
   end
 end

@@ -1,43 +1,33 @@
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<h3>Listing Singers</h3>
-		</div>
-	</div>
-</div>
-
-<div class="hero-unit ">
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<strong> <th> Id </th> <th> Name </th> <th> Lastname </th> <th> Voice Part </th> <th> Status </th> <th> Performing </th> <th> Email </th> <th> Number </th> <th> Points </th> <th> Year </th> </strong>
-			</tr>
-		</thead>
-
-		<% @singers.each do |singer| %>
+<table class="table table-striped">
+	<thead>
 		<tr>
-			<td><%= singer.id %></td>
-			<td><%= singer.name %></td>
-			<td><%= singer.lastname %></td>
-			<td><%= singer.voicepart %></td>
-			<td><%= singer.status %></td>
-			<td><% if singer.performing == true %>
-			<%= "Yes"%>
-			<% else %>
-			<%= "No"%>
-			<% end %></td>
-			<td><%= singer.email %></td>
-			<td><%= singer.number %></td>
-			<td><%= singer.points %></td>
-			<td><%= singer.year %></td>
-			<td><%= link_to 'Show', singer %></td>
-			<td><%= link_to 'Edit', edit_singer_path(singer) %></td>
-			<td><%= link_to 'Destroy', singer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			<strong> <th> Id </th> <th> Name </th> <th> Lastname </th> <th> Voice Part </th> <th> Status </th> <th> Performing </th> <th> Email </th> <th> Number </th> <th> Points </th> <th> Year </th> </strong>
 		</tr>
-		<% end %>
-	</table>
-	<br/>
-</div>
+	</thead>
+
+	<% @singers.each do |singer| %>
+	<tr>
+		<td><%= singer.id %></td>
+		<td><%= singer.name %></td>
+		<td><%= singer.lastname %></td>
+		<td><%= singer.voicepart %></td>
+		<td><%= singer.status %></td>
+		<td><% if singer.performing == true %>
+		<%= "Yes"%>
+		<% else %>
+		<%= "No"%>
+		<% end %></td>
+		<td><%= singer.email %></td>
+		<td><%= singer.number %></td>
+		<td><%= singer.points %></td>
+		<td><%= singer.year %></td>
+		<td><%= link_to 'Show', singer %></td>
+		<td><%= link_to 'Edit', edit_singer_path(singer) %></td>
+		<td><%= link_to 'Destroy', singer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<% end %>
+</table>
+<br/>
 
 <div class="container" align="center" valign="center">
 	<div class="btn">

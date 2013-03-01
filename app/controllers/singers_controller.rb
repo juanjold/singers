@@ -1,6 +1,7 @@
 class SingersController < ApplicationController
   # GET /singers
   # GET /singers.json
+  before_filter :authenticate_admin!
   
   VOICEPARTS = ['Soprano', 'Alto', 'Tenor', 'Base']
   SKILLS = ['Painting', 'Hammering', 'Screwing' ]
