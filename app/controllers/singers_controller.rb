@@ -6,10 +6,21 @@ class SingersController < ApplicationController
   VOICEPARTS = ['Soprano', 'Alto', 'Tenor', 'Base']
   SKILLS = ['Painting', 'Hammering', 'Screwing' ]
   STATS = ['Performing', 'Tech', 'PTech']
+  
   def index
     @singers = Singer.all
-
+    if !params[:scope].nil?
+      @singers = Singer.send(params[:scope])
+    end
     respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @singers }
+    end
+  end
+  
+  def performing
+    @singers = Singer.performing
+     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @singers }
     end

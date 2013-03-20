@@ -20,6 +20,9 @@
 								<li>
 									<%= link_to 'New Singer', new_singer_path %>
 								</li>
+								<li>
+									<%= link_to 'Performing', singers_path(:scope => "performing") %>
+								</li>
 								<% if admin_signed_in? %>
 								<li>
 									<%= link_to 'Logout',
