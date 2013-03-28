@@ -14,7 +14,7 @@ class Notifications < ActionMailer::Base
   
   def update_singer(singer)
     @singer = singer
-    @greeting = "Hey #{singer.name}, your user was recently edited, if this wasn't you please contact the Secretary."
+    @greeting = "Hey #{singer.name}, your user was recently edited, if this was not you please contact the Secretary."
 
     mail to: singer.email
   end
