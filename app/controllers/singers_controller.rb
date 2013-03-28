@@ -2,11 +2,11 @@ class SingersController < ApplicationController
   # GET /singers
   # GET /singers.json
   before_filter :authenticate_admin!
-  
+
   VOICEPARTS = ['Soprano', 'Alto', 'Tenor', 'Base']
   SKILLS = ['Painting', 'Hammering', 'Screwing' ]
   STATS = ['Performing', 'Tech', 'PTech']
-  
+
   def index
     @singers = Singer.all
     if !params[:scope].nil?
@@ -17,10 +17,10 @@ class SingersController < ApplicationController
       format.json { render json: @singers }
     end
   end
-  
+
   def performing
     @singers = Singer.performing
-     respond_to do |format|
+    respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @singers }
     end
@@ -45,6 +45,7 @@ class SingersController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @singer }
+
     end
   end
 
@@ -60,6 +61,7 @@ class SingersController < ApplicationController
 
     respond_to do |format|
       if @singer.save
+        Notifications.new_singer(@singer).deliver
         format.html { redirect_to @singer, notice: 'Singer was successfully created.' }
         format.json { render json: @singer, status: :created, location: @singer }
       else
@@ -76,6 +78,7 @@ class SingersController < ApplicationController
 
     respond_to do |format|
       if @singer.update_attributes(params[:singer])
+        Notifications.update_singer(@singer).deliver
         format.html { redirect_to @singer, notice: 'Singer was successfully updated.' }
         format.json { head :no_content }
       else
