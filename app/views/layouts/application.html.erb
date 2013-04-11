@@ -4,7 +4,7 @@
 		<title>PennSingers</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %>
+		<%= csrf_meta_tags %> 
 	</head>
 	<body>
 
@@ -23,6 +23,9 @@
 								<li>
 									<%= link_to 'Performing', singers_path(:scope => "performing") %>
 								</li>
+								<li id="wrapper">
+								<a>Help</a>
+								</li>
 								<% if admin_signed_in? %>
 								<li>
 									<%= link_to 'Logout',
@@ -38,7 +41,7 @@
 		</div>
 		<div class="hero-unit">
 			<div class="row-fluid">
-
+			<div id="helptext" class='alert-info'>To create a new singer, click on the "New Singer" tab above. To see performing members click on the "Performing" tab.</div>
 				<% if alert %>
 				<div class="alert alert-error">
 					<%= alert %>
@@ -52,4 +55,15 @@
 				<%= yield %>
 			</div>
 	</body>
+	<script>		
+ var $display = $("#helptext");
+ var $wrap = $("#wrapper");
+ $display.hide();
+
+ $(function () {
+     $wrap.click(function () {
+         $display.toggle("slow");
+     });
+ });
+ </script>
 </html>
