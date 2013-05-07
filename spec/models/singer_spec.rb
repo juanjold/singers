@@ -10,6 +10,8 @@ describe Singer do
     singer.should_not be_valid
     singer.name = "John"
     singer.lastname = "val"
+    singer.year = "2012"
+    singer.status = "Tech"
     singer.should_not be_valid
     singer.email = "lopez@gmail.com"
     singer.number = "1231231234"

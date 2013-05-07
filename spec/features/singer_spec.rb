@@ -21,7 +21,6 @@ describe 'Adding a new singer' do
     page.should have_content error_message
   end
   
-   
   it 'requires valid email', js: true do
     visit singers_path
     click_link "New Singer"

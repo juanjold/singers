@@ -6,11 +6,7 @@ class SingersController < ApplicationController
   VOICEPARTS = ['Soprano', 'Alto', 'Tenor', 'Base']
   SKILLS = ['Painting', 'Hammering', 'Screwing' ]
   STATS = ['Performing', 'Tech', 'PTech']
-  
-  def neim
-     puts self.name
-  end
-  
+
   def index
     @singers = Singer.all
     if !params[:scope].nil?
