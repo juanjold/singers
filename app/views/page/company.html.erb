@@ -1,0 +1,66 @@
+<div class="row-fluid" align="center">
+	<%= image_tag "company.jpg" %>
+</div>
+<h3 align="center">Current Company</h3>
+<div class= "row">
+	<div class =  "span4">
+		<h4> Soprano </h4>
+		<% @singers.each do |singer| %>
+		<% if singer.voicepart == "Soprano" && singer.status == "Performing"%>
+		<%= singer.name + " " + singer.lastname%>
+		<br>
+		<% end %>
+		<% end %>
+	</div>
+
+	<div class =  "span4">
+		<h4> Alto </h4>
+		<% @singers.each do |singer| %>
+		<% if singer.voicepart == "Alto" && singer.status == "Performing" %>
+		<%= singer.name + " " + singer.lastname%>
+		<br>
+		<% end %>
+		<% end %>
+	</div>
+
+	<div class =  "span4">
+		<h4> Tenor </h4>
+		<% @singers.each do |singer| %>
+		<% if singer.voicepart == "Tenor" && singer.status == "Performing"%>
+		<%= singer.name + " " + singer.lastname%>
+		<br>
+		<% end %>
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class =  "span4">
+		<h4> Bass </h4>
+		<% @singers.each do |singer| %>
+		<% if singer.voicepart == "Bass" && singer.status == "Performing"%>
+		<%= singer.name + " " + singer.lastname%>
+		<br>
+		<% end %>
+		<% end %>
+	</div>
+
+	<div class =  "span4">
+		<h4> Tech </h4>
+		<% @singers.each do |singer| %>
+		<% if singer.status == "Tech" %>
+		<%= singer.name + " " + singer.lastname%>
+		<br>
+		<% end %>
+		<% end %>
+	</div>
+
+	<div class =  "span4">
+		<h4> P-Tech </h4>
+		<% @singers.each do |singer| %>
+		<% if singer.status == "Ptech" %>
+		<%= singer.name + " " + singer.lastname%>
+		<br>
+		<% end %>
+		<% end %>
+	</div>
+</div>

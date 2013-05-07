@@ -8,6 +8,7 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require nivo
  *= require_self
  *= require_tree .
  *<link rel="stylesheet" href="/twitter-bootstrap/twitter-bootstrap-v2/docs/assets/css/bootstrap.css">
@@ -16,5 +17,12 @@
 
 .hero-unit {
   background: rgba(247, 247, 247, 0.6);
-  background-image: url("bg.jpg");
+}
+
+.body {
+	  background-image: url("bg.png");
+}
+
+body .container{
+  width:1176px;
 }

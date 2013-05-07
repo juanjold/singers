@@ -1,0 +1,21 @@
+<div class="slider-wrapper theme-light">
+	<div id="slider" class="nivoSlider">
+		<div class="row" width = "700"> 
+		<%= image_tag "slide1.jpg" %>
+		</div>
+		<div class="row">
+			<%= image_tag "slide4.jpg" %>
+		</div>
+		<div class="row">
+			<%= image_tag "slide3.jpg" %>
+		</div>
+	</div>
+</div>
+
+<% @posts.each do |post| %>
+    <h3><%= post.title %></h3>
+    <p><%= simple_format(post.body) %></p>
+  <br>
+<% end %>
+
+<br />

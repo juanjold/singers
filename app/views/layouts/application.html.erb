@@ -4,66 +4,109 @@
 		<title>PennSingers</title>
 		<%= stylesheet_link_tag    "application", :media => "all" %>
 		<%= javascript_include_tag "application" %>
-		<%= csrf_meta_tags %> 
+		<%= javascript_include_tag 'jquery.nivo.slider.pack' %>
+		<%= javascript_include_tag 'jquery.nivo.slider' %>
+		<%= csrf_meta_tags %>
+		<BODY BACKGROUND="/bg.png" bgproperties="fixed">
+
+			<script type="text/javascript">
+				$(window).load(function() {
+					$('#slider').nivoSlider({
+						effect : 'fade',
+						pauseTime : 2000,
+						directionNav : false,
+						controlNav : false
+
+					});
+				});
+
+			</script>
+
 	</head>
 	<body>
-
-		<div class="navbar navbar-fixed-top">
-			<div class="navbar-inner">
-				<div class="container">
-					<div class="row">
-						<div class="span8">
-							<ul class="nav nav-pills">
-								<li>
-									<%= link_to 'Home', singers_path %>
-								</li>
-								<li>
-									<%= link_to 'New Singer', new_singer_path %>
-								</li>
-								<li>
-									<%= link_to 'Performing', singers_path(:scope => "performing") %>
-								</li>
-								<li id="wrapper">
-								<a>Help</a>
-								</li>
-								<% if admin_signed_in? %>
-								<li>
-									<%= link_to 'Logout',
-									destroy_admin_session_path,
-									method: :delete %>
-								</li>
-								<% end %>
-							</ul>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<div class="row">
+							<%= image_tag "top.jpg" %>
+						</div>
+						<div class="row">
+							<div class="span12">
+								<ul class="nav nav-pills">
+									<li>
+										<%= link_to 'Home', home_path %>
+									</li>
+									<li>
+										<%= link_to 'Company', company_path %>
+									</li>
+									<li>
+										<%= link_to 'History', history_path %>
+									</li>
+									<% if admin_signed_in? %>
+									<li>
+										<%= link_to 'Singers', singers_path %>
+									</li>
+									<li>
+										<%= link_to 'New Singer', new_singer_path %>
+									</li>
+									<li>
+										<%= link_to 'News', posts_path %>
+									</li>
+									<li>
+										<%= link_to 'Performing', singers_path(:scope => "performing") %>
+									</li>
+									<li>
+										<%= link_to 'Logout',
+										destroy_admin_session_path,
+										method: :delete %>
+									</li>
+									<li id="wrapper">
+										<a>Help</a>
+									</li>
+									<% else %>
+									<li>
+									<%= link_to 'Login', new_admin_session_path %>
+									</li>
+									<% end %>
+								</ul>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="hero-unit">
-			<div class="row-fluid">
-			<div id="helptext" class='alert-info'>To create a new singer, click on the "New Singer" tab above. To see performing members click on the "Performing" tab.</div>
-				<% if alert %>
-				<div class="alert alert-error">
-					<%= alert %>
+		<div class="container">
+			<div class="hero-unit" >
+				<div class="row">
+					<div id="helptext" class='alert-info'>
+						Manage the cast, the company and the News posts.
+					</div>
+					<% if alert %>
+					<div class="alert alert-error">
+						<%= alert %>
+					</div>
+					<% end %>
+					<% if notice %>
+					<div class="alert alert-success">
+						<%= notice %>
+					</div>
+					<% end %>
+					<%= yield %>
 				</div>
-				<% end %>
-				<% if notice %>
-				<div class="alert alert-success">
-					<%= notice %>
-				</div>
-				<% end %>
-				<%= yield %>
 			</div>
+		</div>
 	</body>
-	<script>		
- var $display = $("#helptext");
- var $wrap = $("#wrapper");
- $display.hide();
+	<script>
+		var $display = $("#helptext");
+		var $wrap = $("#wrapper");
+		$display.hide();
 
- $(function () {
-     $wrap.click(function () {
-         $display.toggle("slow");
-     });
- });
- </script>
+		$(function() {
+			$wrap.click(function() {
+				$display.toggle("slow");
+			});
+		});
+	</script>
+
 </html>

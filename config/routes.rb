@@ -1,8 +1,14 @@
 PennSingers::Application.routes.draw do
+  resources :posts
+
+
   devise_for :admins
 
   resources :singers
   
+  match '/home' => 'page#home'
+  match '/company' => 'page#company'
+  match '/history' => 'page#history'
 
   # The priorits is based upon order of creation:
   # first created -> highest priority.

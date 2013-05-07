@@ -12,6 +12,8 @@ group :development, :test do
   gem 'debugger'
 end
 
+gem 'nivo-rails'
+
 gem 'devise'
 
 group :test do
