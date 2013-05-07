@@ -19,7 +19,7 @@
 		<% @singers.each do |singer| %>
 		<% if singer.voicepart == "Soprano" && singer.status == "Performing"%>
 		<p>
-			<%= singer.name + " " + singer.lastname%>
+			<%= singer.name + " " + singer.lastname+ ", " + singer.year.to_s%>
 		</p>
 		<% end %>
 		<% end %>
@@ -30,7 +30,7 @@
 		<% @singers.each do |singer| %>
 		<% if singer.voicepart == "Alto" && singer.status == "Performing" %>
 		<p>
-			<%= singer.name + " " + singer.lastname%>
+		<%= singer.name + " " + singer.lastname+ ", " + singer.year.to_s%>
 		</p>
 		<% end %>
 		<% end %>
@@ -41,7 +41,7 @@
 		<% @singers.each do |singer| %>
 		<% if singer.voicepart == "Tenor" && singer.status == "Performing"%>
 		<p>
-			<%= singer.name + " " + singer.lastname%>
+		<%= singer.name + " " + singer.lastname+ ", " + singer.year.to_s%>
 		</p>
 		<% end %>
 		<% end %>
@@ -51,9 +51,9 @@
 	<div class =  "span4">
 		<h4> Bass </h4>
 		<% @singers.each do |singer| %>
-		<% if singer.voicepart == "Bass" && singer.status == "Performing"%>
+		<% if singer.voicepart == "Base" && singer.status == "Performing"%>
 		<p>
-			<%= singer.name + " " + singer.lastname%>
+		<%= singer.name + " " + singer.lastname+ ", " + singer.year.to_s%>
 		</p>
 		<% end %>
 		<% end %>
@@ -64,7 +64,7 @@
 		<% @singers.each do |singer| %>
 		<% if singer.status == "Tech" %>
 		<p>
-			<%= singer.name + " " + singer.lastname%>
+		<%= singer.name + " " + singer.lastname+ ", " + singer.year.to_s%>
 		</p>
 		<% end %>
 		<% end %>
@@ -73,9 +73,9 @@
 	<div class =  "span4">
 		<h4> P-Tech </h4>
 		<% @singers.each do |singer| %>
-		<% if singer.status == "Ptech" %>
+		<% if singer.status == "PTech" %>
 		<p>
-			<%= singer.name + " " + singer.lastname%>
+		<%= singer.name + " " + singer.lastname+ ", " + singer.year.to_s%>
 		</p>
 		<% end %>
 		<% end %>

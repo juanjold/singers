@@ -54,6 +54,9 @@
 										<%= link_to 'News', posts_path %>
 									</li>
 									<li>
+										<%= link_to 'New Post', new_post_path %>
+									</li>
+									<li>
 										<%= link_to 'Performing', singers_path(:scope => "performing") %>
 									</li>
 									<li>
@@ -80,7 +83,7 @@
 			<div class="hero-unit" >
 				<div class="row">
 					<div id="helptext" class='alert-info'>
-						Manage the cast, the company and the News posts.
+						Manage the cast, company and the news posts. To create a new Singer, click on the 'New Singer' tab. To add a news post, click on the 'New Post' tab. To see only performing members, click on the 'Performing' tab.
 					</div>
 					<% if alert %>
 					<div class="alert alert-error">
