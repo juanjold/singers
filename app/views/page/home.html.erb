@@ -12,10 +12,12 @@
 	</div>
 </div>
 
+<table class="table table-striped">
+
 <% @posts.each do |post| %>
-    <h3><%= post.title %></h3>
-    <p><%= simple_format(post.body) %></p>
-  <br>
+     <tr> <td><h3><%= post.title %></h3></td> </tr>
+    <tr><td><p><%= simple_format(post.body) %></p></td></tr>
 <% end %>
+</table>
 
 <br />
